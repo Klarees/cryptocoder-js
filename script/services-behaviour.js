@@ -1,3 +1,6 @@
+import { encryptCeaserCipher, decryptCeaserCipher } from "./ceaser-cipher.js";
+import { encryptVigenereCipher, decryptVigenereCipher } from "./vigenere-cipher.js";
+
 export const inputTextBehaviour = () => {
     let action;
     if (document.getElementById("encrypt").classList.contains("active")) {
