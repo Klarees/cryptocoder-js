@@ -1,3 +1,5 @@
+import { inputTextBehaviour, servicesBehaviour } from "./services-behaviour.js";
+
 const $encryptionTypeButton = document.getElementById("encryption-type-button");
 const $encryptionTypeButtonTitle = document.getElementById(
   "encryption-type-button-title"

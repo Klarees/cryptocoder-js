@@ -1,3 +1,6 @@
+import menuElements from "./menu.js";
+import { inputTextBehaviour, servicesBehaviour } from "./services-behaviour.js";
+
 copyButtonElements.behaviorCopyButton();
 
 menuElements.$encryptionOptionButtons.forEach(function (option) {
