@@ -12,26 +12,47 @@
     </header>
     <div class="encryption-file">
         <form>
-            <input type="file" id="fileInput">
-            <br><br>
-            <button type="button" onclick="encryptFile()">Encrypt</button>
-            <button type="button" onclick="decryptFile()">Decrypt</button>
+          <input type="file" id="fileInput">
+          <br><br>
+          <button type="button" onclick="encryptFile()">Encrypt</button>
+          <button type="button" onclick="decryptFile()">Decrypt</button>
         </form>
         <script>
-            //Function to handle a file selection
-            function handleFileSelect(event) {
-                const file=event.targetfiles[0];
-            }
-            //Function for encrypting txt file
-            function encryptFile() {
-                const file=document.getElementById('fileInput').files[0];
-            }
-            //Function for decrypting txt file
-            function decryptFile() {
-                const file=document.getElementById('fileInput').files[0];
-            }
+          //Function to handle file selection
+          function handleFileSelect(event) {
+            const file=event.targetfiles[0];
+          }
         </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-    </div>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+       <script>
+           //Function for encrypting txt file
+           function encryptFile() {
+               const file = document.getElementById('fileInput').files[0];
+               const reader = new FileReader();
+               reader.onload = function (event) {
+                   const fileContent = event.target.result;
+                   const encrypted = CryptoJS.AES.encrypt(fileContent, 'secretKey');
+                   const encryptedBlob = new Blob([encrypted.toString()], { type: 'text/plain' });
+                   saveAs(encryptedBlob, 'encrypted_file.txt');
+               };
+               reader.readAsText(file);
+           }
+           //Function for decrypting txt file
+           function decryptFile() {
+               const file = document.getElementById('fileInput').files[0];
+               const reader = new FileReader();
+               reader.onload = function (event) {
+                   const fileContent = event.target.result;
+                   const decrypted = CryptoJS.AES.decrypt(fileContent, 'secretKey');
+                   const decryptedBlob = new Blob([decrypted.toString(CryptoJS.enc.Utf8)], { type: 'text/plain' });
+                   saveAs(decryptedBlob, 'decrypted_file.txt');
+               };
+               reader.readAsText(file);
+           }
+           // Event listener for file selection
+           document.getElementById('fileInput').addEventListener('change', handleFileSelect, false);
+       </script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
+      </div>
 </body>
 </html>
