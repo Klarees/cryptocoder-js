@@ -1,4 +1,5 @@
 import { inputTextBehaviour, servicesBehaviour } from "./services-behaviour.js";
+import { ciphersDescriptions } from "./description-ciphers.js";
 
 const $encryptionTypeButton = document.getElementById("encryption-type-button");
 const $encryptionTypeButtonTitle = document.getElementById(
