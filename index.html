@@ -17,6 +17,21 @@
             <button type="button" onclick="encryptFile()">Encrypt</button>
             <button type="button" onclick="decryptFile()">Decrypt</button>
         </form>
+        <script>
+            //Function to handle a file selection
+            function handleFileSelect(event) {
+                const file=event.targetfiles[0];
+            }
+            //Function for encrypting txt file
+            function encryptFile() {
+                const file=document.getElementById('fileInput').files[0];
+            }
+            //Function for decrypting txt file
+            function decryptFile() {
+                const file=document.getElementById('fileInput').files[0];
+            }
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     </div>
 </body>
 </html>
