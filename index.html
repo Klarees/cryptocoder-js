@@ -54,5 +54,86 @@
        </script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
       </div>
+
+      <main class="main">
+        <div class="encryption-container">
+          <div class="encryption-container__input">
+            <textarea
+              id="input-text"
+              class="input__textarea textarea"
+              aria-label="content"
+            >Please enter your text here...</textarea>
+          </div>
+          <div class="encryption__menu-container">
+            <div class="encryption__actions-container">
+              <ul class="encryption__actions-list">
+                <li class="action__item">
+                  <button id="encrypt" class="action__btn">
+                    <span id="encrypt-action-span" class="action__btn-span"
+                      >encrypt</span
+                    >
+                  </button>
+                </li>
+                <li class="action__item">
+                  <button id="decrypt" class="action__btn">
+                    <span id="decrypt-action-span" class="action__btn-span"
+                      >decrypt</span
+                    >
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <nav class="encryption-type__nav">
+              <div class="encryption-type__btn-container">
+                <button id="encryption-type-button" class="encryption-type__btn">
+                  <p>Choose Encryption here... </p>
+                  <span
+                    class="encryption-type__btn-title"
+                    id="encryption-type-button-title"
+                  ></span>
+                </button>
+              </div>
+              <div id="encryption-menu" class="modal" >
+                <div class="modal-content">
+                  <label class="modal__label">Encryption</label>
+                  <span class="close-button">&times;</span>
+                  <button id="vignere-cipher" class="encryption-option">
+                    <span class="frame"></span>
+                    <span class="cipher-name">Vigenère Cipher</span>
+                  </button>
+                  <button id="ceaser-cipher" class="encryption-option">
+                    <span class="frame"></span>
+                    <span class="cipher-name">César Cipher</span>
+                  </button>
+                </div>
+              </div>
+            </nav>
+          </div>
+          
+          <div class="encryption-container__output">
+            <textarea
+              readonly
+              id="output-text"
+              class="output__textarea textarea"
+              aria-label="content"
+            ></textarea>
+            <button class="output__copy-button" id="copy-button">
+              <img
+                src="./icons/copy.svg"
+                alt="Copy"
+                class="copy-button__svg"
+              />
+            </button>
+            <div id="copy-message" class="output__copy-message"></div>
+          </div>
+        </div>
+        
+        <div class="description-container">
+          <aside class="description__aside">
+            <h2 id="description-title" class="description__title"></h2>
+            <p id="description-text" class="description__encryption"></p>
+          </aside>
+        </div>
+      </main>
 </body>
 </html>
